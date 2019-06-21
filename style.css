@@ -1,0 +1,36 @@
+#logo{
+    height:200px;
+    margin-left:700px;
+}
+#start{
+position: absolute;
+left: 1500px;
+top: 300px;
+font-size: 60px;
+}
+#size{border: 2px solid red;
+position: absolute;
+left: 1500px;
+top: 510px;
+font-size: 40px;
+}
+#time{border: 2px solid red;
+position: absolute;
+left: 100px;
+top: 700px;
+font-size: 40px;
+}
+#solve{
+position: absolute;
+left: 100px;
+top: 800px;
+font-size: 60px;
+background-color: cyan;
+}
+#box{position: absolute;
+    left:1500px ;
+    top:580px ;
+    font-size: 30px;
+    width:140px;
+    height: 50px;
+}
