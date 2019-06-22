@@ -14,38 +14,6 @@
         function imageGenerator() {
             alert(imageArray);
         }
-<<<<<<< HEAD
-       function createTable(str){
-        if(document.getElementById("tableID")){
-            var tbl = document.getElementById("tableID");
-            if(tbl) tbl.parentNode.removeChild(tbl);
-        }   
-
-         array=str.split("*",2);
-        var rowno=parseInt(array[0]);     
-        var col=parseInt(array[1]);
-        var div1 = document.getElementById('myTable');
-         for (var index = 0; index < rowno*col/2; index++) {
-            imageArray[index]=2; 
-         }
-         var tbl = document.createElement("table");
-         tbl.id="tableID";
-         
- // creating rows
- for (var r = 0; r < rowno; r++) {
-     var row = document.createElement("tr");
-
-     for (var c = 0; c < col; c++) {
-        var cell=document.createElement("td");
-        var cellText = document.createTextNode(r)
-        cell.appendChild( cellText);
-        row.appendChild(cell);
-     }
-     tbl.appendChild(row);
- }
-    div1.appendChild(tbl);
-    div1.disabled=false;
-=======
 
         function createTable(str) {
             if (document.getElementById("tableID")) {
@@ -67,7 +35,6 @@
             // creating rows
             for (var r = 0; r < rowno; r++) {
                 var row = document.createElement("tr");
->>>>>>> 3e36d1d29dc9fd35b35c3076036bac1dd972a75f
 
                 for (var c = 0; c < col; c++) {
                     var cell = document.createElement("td");
