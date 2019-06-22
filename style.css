@@ -4,9 +4,28 @@
     margin-right: auto;
     display: block;
 }
+<<<<<<< HEAD
 #myTable {margin:40px;font-size:1.25em;}
 table { border:2px solid #7f7f7f;}
 td {border:1px solid #7f7f7f;  padding:50px  }
+=======
+
+#myTable {
+    margin-left: 100px;
+    margin-top: 40px;
+    font-size: 1.25em;
+}
+
+table {
+    border: 2px solid #7f7f7f;
+}
+
+td {
+    border: 1px solid #7f7f7f;
+    padding: 10px;
+    width: 50px;
+}
+>>>>>>> 3e36d1d29dc9fd35b35c3076036bac1dd972a75f
 
 #start {
     position: absolute;
@@ -27,7 +46,7 @@ td {border:1px solid #7f7f7f;  padding:50px  }
 
 #time {
     position: absolute;
-    left: 100px;
+    left: 900px;
     top: 500px;
     font-size: 30px;
     font-style: oblique;
