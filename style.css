@@ -1,36 +1,50 @@
-#logo{
-    height:200px;
-    margin-left:700px;
+#logo {
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
-#start{
-position: absolute;
-left: 1500px;
-top: 300px;
-font-size: 60px;
-}
-#size{border: 2px solid red;
-position: absolute;
-left: 1500px;
-top: 510px;
-font-size: 40px;
-}
-#time{border: 2px solid red;
-position: absolute;
-left: 100px;
-top: 700px;
-font-size: 40px;
-}
-#solve{
-position: absolute;
-left: 100px;
-top: 800px;
-font-size: 60px;
-background-color: cyan;
-}
-#box{position: absolute;
-    left:1500px ;
-    top:580px ;
+
+#start {
+    position: absolute;
+    left: 900px;
+    top: 150px;
     font-size: 30px;
-    width:140px;
+    width: 300px;
+    background-color: lawngreen;
+    color: white;
+}
+
+#size {
+    position: absolute;
+    left: 900px;
+    top: 285px;
+    font-size: 30px;
+}
+
+#time {
+    position: absolute;
+    left: 100px;
+    top: 520px;
+    font-size: 20px;
+}
+
+#solve {
+    position: absolute;
+    left: 100px;
+    top: 550px;
+    font-size: 30px;
+    background-color: black;
+    color: red;
+    width: 200px;
+}
+
+#box {
+    position: absolute;
+    left: 900px;
+    top: 320px;
+    font-size: 30px;
+    width: 300px;
     height: 50px;
+    text-align-last: center;
 }
