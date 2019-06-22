@@ -14,6 +14,11 @@
             alert(imageArray);
         }
        function createTable(str){
+        if(document.getElementById("tableID")){
+            var tbl = document.getElementById("tableID");
+            if(tbl) tbl.parentNode.removeChild(tbl);
+        }   
+
          array=str.split("*",2);
         var rowno=parseInt(array[0]);     
         var col=parseInt(array[1]);
@@ -22,7 +27,8 @@
             imageArray[index]=2; 
          }
          var tbl = document.createElement("table");
- 
+         tbl.id="tableID";
+         
  // creating rows
  for (var r = 0; r < rowno; r++) {
      var row = document.createElement("tr");
@@ -36,6 +42,7 @@
      tbl.appendChild(row);
  }
     div1.appendChild(tbl);
+    div1.disabled=false;
 
        }
        
@@ -43,12 +50,12 @@
 
     <img id="logo" src="logo.png" />
     <hr />
-    <div id="myTable"> </div>
+    <div disabled id="myTable"> </div>
     <div id="size"> Size</div>
     <div id="time"> Time</div>
     <button id="solve" type="button" disabled> Solve</button>
     <form>
-        <input type="button" id="start" value="Start" onclick="createTable('6*9')">
+        <input type="button" id="start" value="Start" onclick="createTable(document.getElementById('box').value)">
         <select id="box" name="arraySize">
                 <option value="6*6">18 Pairs</option>
                 <option value="6*7">21 Pairs</option>
