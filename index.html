@@ -8,17 +8,46 @@
 
 <body>
     <script>
-        //test
+        var array;
+        var imageArray=[];
+        function imageGenerator(){
+            alert(imageArray);
+        }
+       function createTable(str){
+         array=str.split("*",2);
+        var rowno=parseInt(array[0]);     
+        var col=parseInt(array[1]);
+        var div1 = document.getElementById('myTable');
+         for (var index = 0; index < rowno*col/2; index++) {
+            imageArray[index]=2; 
+         }
+         var tbl = document.createElement("table");
+ 
+ // creating rows
+ for (var r = 0; r < rowno; r++) {
+     var row = document.createElement("tr");
+
+     for (var c = 0; c < col; c++) {
+        var cell=document.createElement("td");
+        var cellText = document.createTextNode(r)
+        cell.appendChild( cellText);
+        row.appendChild(cell);
+     }
+     tbl.appendChild(row);
+ }
+    div1.appendChild(tbl);
+
+       }
     </script>
 
     <img id="logo" src="logo.png" />
     <hr />
-
+    <div id="myTable"> </div>
     <div id="size"> Size</div>
     <div id="time"> Time</div>
     <button id="solve" type="button" disabled> Solve</button>
     <form>
-        <input type="button" id="start" value="Start" onclick="document.getElementById('solve').disabled=false;">
+        <input type="button" id="start" value="Start" onclick="createTable('6*9')">
         <select id="box" name="arraySize">
                 <option value="6">"6*6"</option>
                 <option value="8">"8*8"</option>
