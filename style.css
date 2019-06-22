@@ -4,6 +4,11 @@
     margin-right: auto;
     display: block;
 }
+<<<<<<< HEAD
+#myTable {margin:40px;font-size:1.25em;}
+table { border:2px solid #7f7f7f;}
+td {border:1px solid #7f7f7f;  padding:50px  }
+=======
 
 #myTable {
     margin-left: 100px;
@@ -18,6 +23,7 @@ td {
     width: 50px;
     background-color: aqua;
 }
+>>>>>>> 3e36d1d29dc9fd35b35c3076036bac1dd972a75f
 
 #start {
     position: absolute;
