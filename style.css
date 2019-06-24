@@ -34,14 +34,6 @@ td {
     font-size: 30px;
 }
 
-#time {
-    position: absolute;
-    left: 900px;
-    top: 500px;
-    font-size: 30px;
-    font-style: oblique;
-}
-
 #solve {
     position: absolute;
     left: 100px;
@@ -60,4 +52,14 @@ td {
     width: 300px;
     height: 30px;
     text-align-last: center;
+}
+
+#timer {
+    position: absolute;
+    border: red solid 2px;
+    font-size: 25px;
+    top: 450px;
+    left: 900px;
+    width: 180px;
+    padding: 5px;
 }
