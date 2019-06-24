@@ -55,7 +55,7 @@
     <div id="time"> Time</div>
     <button id="solve" type="button" disabled> Solve</button>
     <form>
-        <input type="button" id="start" value="Start" onclick="createTable(document.getElementById('box').value)">
+        <input type="button" id="start" value="Start" onclick="createTable(document.getElementById('box').value);document.getElementById('start').value='Restart';document.getElementById('solve').disabled=false">
         <select id="box" name="arraySize">
                 <option value="6*6">18 Pairs</option>
                 <option value="6*7">21 Pairs</option>
