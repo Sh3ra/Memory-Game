@@ -46,16 +46,99 @@
             div1.appendChild(tbl);
             div1.disabled = false;
         }
+
+        var hours = 0;
+        var mins = 0;
+        var seconds = 0;
+        var myvar, time_checker = false;
+
+        function timo(x) {
+            if (x == true) {
+                myvar = setInterval(startTimer, 1000);
+                time_checker = true;
+            } else clearInterval(myvar);
+        }
+
+        function startTimer() {
+            if (time_checker == true) {
+                seconds = 0;
+                mins = 0;
+                hours = 0;
+                time_checker = false;
+            }
+            seconds++;
+            if (seconds > 59) {
+                mins++;
+                seconds = 0;
+            }
+            if (mins > 59) {
+                hours++;
+                mins = 0;
+                seconds = 0;
+            }
+            var temp;
+            var result;
+            if (hours < 10) {
+                temp = "0" + hours;
+                result = temp;
+                result = result + " : ";
+                temp = null;
+            } else {
+                result = hours;
+                result = result + " : ";
+            }
+            if (mins < 10) {
+                temp = "0" + mins;
+                result = result + temp;
+                result = result + " : ";
+                temp = null;
+            } else {
+                result = result + mins;
+                result = result + " : ";
+            }
+            if (seconds < 10) {
+                temp = "0" + seconds;
+                result = result + temp;
+                temp = null;
+            } else {
+                result = result + seconds;
+            }
+
+            document.getElementById("timer").innerHTML = "Time " + result;
+        }
     </script>
 
     <img id="logo" src="logo.png" />
     <hr />
     <div disabled id="myTable"> </div>
     <div id="size"> Size</div>
-    <div id="time"> Time</div>
+    <div id="timer">
+        <span id="time">Time </span>
+        <span id="hours">00 :</span>
+        <span id="mins">00 :</span>
+        <span id="seconds">00</span>
+    </div>
+
     <button id="solve" type="button" disabled> Solve</button>
     <form>
-        <input type="button" id="start" value="Start" onclick="createTable(document.getElementById('box').value)">
+        <input type="button" id="start" value="Start" onclick="
+           if(document.getElementById('start').value=='Start')
+                {
+                    timo(true);
+                createTable(document.getElementById('box').value);
+                document.getElementById('start').value='Restart';
+                document.getElementById('solve').disabled=false;
+                }
+            else 
+                {
+                    timo(false);
+                var tbl = document.getElementById('tableID');
+                if (tbl) tbl.parentNode.removeChild(tbl);
+                document.getElementById('solve').disabled=true;
+                document.getElementById('start').value='Start';
+
+                }
+                ">
         <select id="box" name="arraySize">
                 <option value="6*6">18 Pairs</option>
                 <option value="6*7">21 Pairs</option>
