@@ -63,3 +63,16 @@ td {
     width: 180px;
     padding: 5px;
 }
+
+#author {
+    position: absolute;
+    top: 600px;
+}
+
+.vl {
+    position: absolute;
+    left: 880px;
+    top: 116px;
+    border-left: 3px solid gray;
+    height: 508px;
+}
