@@ -37,7 +37,7 @@
                     var cellText = document.createElement("IMG");
                     var ran;
                     do {
-                        ran = Math.floor(Math.random() * ((rowno * col) / 2) + 1);
+                        ran = Math.floor(Math.random() * ((rowno * col) / 2) );
                     } while (imageArray[ran] == 0);
                     imageArray[ran]--;
                     cellText.src = "png/" + ran + ".png";
