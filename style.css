@@ -17,6 +17,12 @@ td {
     background-color: aqua;
 }
 
+td img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #start {
     position: absolute;
     left: 900px;
