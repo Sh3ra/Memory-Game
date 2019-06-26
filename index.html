@@ -34,17 +34,33 @@
                 var row = document.createElement("tr");
                 for (var c = 0; c < col; c++) {
                     var cell = document.createElement("td");
-                    var cellText = document.createTextNode(r)
+                    var cellText = document.createElement("IMG");
+                    var ran;
+                    do {
+                        ran = Math.floor(Math.random() * ((rowno * col) / 2) + 1);
+                    } while (imageArray[ran] == 0);
+                    imageArray[ran]--;
+                    cellText.src = "png/" + ran + ".png";
                     if (rowno > 8) {
                         cell.style.padding = "7px";
                     } else cell.style.padding = "12px";
+
                     cell.appendChild(cellText);
+                    if (rowno < 7) {
+                        cellText.style.width = "30px";
+                        cellText.style.height = "30px";
+                    } else if (rowno == 7) {
+                        cellText.style.width = "25px";
+                        cellText.style.height = "25px";
+                    } else {
+                        cellText.style.width = "22px";
+                        cellText.style.height = "22px";
+                    }
                     row.appendChild(cell);
                 }
                 tbl.appendChild(row);
             }
             div1.appendChild(tbl);
-            div1.disabled = false;
         }
 
         var hours = 0;

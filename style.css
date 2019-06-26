@@ -6,9 +6,9 @@
 }
 
 #myTable {
-    margin-left: 100px;
-    margin-top: 40px;
-    font-size: 1.25em;
+    position: absolute;
+    top: 100 px;
+    left: 50px;
 }
 
 td {
