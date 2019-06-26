@@ -37,7 +37,7 @@
                     var cellText = document.createElement("IMG");
                     var ran;
                     do {
-                        ran = Math.floor(Math.random() * ((rowno * col) / 2) );
+                        ran = Math.floor(Math.random() * ((rowno * col) / 2));
                     } while (imageArray[ran] == 0);
                     imageArray[ran]--;
                     cellText.src = "png/" + ran + ".png";
@@ -126,7 +126,7 @@
 
     <img id="logo" src="logo.png" />
     <hr />
-    <div disabled id="myTable"> </div>
+    <div id="myTable"> </div>
     <div id="size"> Size</div>
     <div id="timer">
         <span id="time">Time </span>
