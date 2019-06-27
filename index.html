@@ -10,11 +10,11 @@
     <script>
         var array;
         var imageArray = [];
-        var twoDarray=[];
 
         function imageGenerator() {
             alert(imageArray);
         }
+        
 
         function createTable(str) {
             if (document.getElementById("tableID")) {
@@ -35,17 +35,13 @@
                 var row = document.createElement("tr");
                 for (var c = 0; c < col; c++) {
                     var cell = document.createElement("td");
-
-                   
-
                     var cellText = document.createElement("IMG");
                     var ran;
                     do {
-                        ran = Math.floor(Math.random() * ((rowno * col)/ 2 ) );
+                        ran = Math.floor(Math.random() * ((rowno * col) / 2));
                     } while (imageArray[ran] == 0);
                     imageArray[ran]--;
-                    cellText.src=   "png/" + ran + ".png";
-                    cellText.style.blur="20px"  ;
+                    cellText.src = "png/" + ran + ".png";
                     if (rowno > 8) {
                         cell.style.padding = "7px";
                     } else cell.style.padding = "12px";
@@ -61,25 +57,32 @@
                         cellText.style.width = "22px";
                         cellText.style.height = "22px";
                     }
-                    
                     row.appendChild(cell);
-                    tbl.rows[r].cells[c].onclick = function () {
-                    tableText(this);
-                    };
-                  //  cell.addEventListener("click",function(){
-                    //    alert(cell.cellIndex);
-                        //var cellText=document.createTextNode("");
-                    //});
-                   
                 }
                 tbl.appendChild(row);
             }
             div1.appendChild(tbl);
-       }
-       function tableText(tableCell) {
-            alert(tableCell.cellIndex);
+            tablefunction();
+        }
+        function tablefunction(){
+        var table = document.getElementById("tableID"),rIndex,cIndex;
+            for(var i = 1; i < table.rows.length; i++)
+            {
+                // row cells
+                for(var j = 0; j < table.rows[i].cells.length; j++)
+                {
+                    table.rows[i].cells[j].onclick = function()
+                    {
+                        rIndex = this.parentElement.rowIndex;
+                        cIndex = this.cellIndex+1;
+                      // var cell=document.createElement("td");
+                       this.innerHTML='';
+                       //alert("Row : "+rIndex+" , Cell : "+cIndex);
+                    };
+                }
             }
-
+           
+        }
 
         var hours = 0;
         var mins = 0;
@@ -144,7 +147,7 @@
 
     <img id="logo" src="logo.png" />
     <hr />
-    <div disabled id="myTable"> </div>
+    <div id="myTable"> </div>
     <div id="size"> Size</div>
     <div id="timer">
         <span id="time">Time </span>
