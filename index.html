@@ -48,7 +48,7 @@
                     } while (imageArray[ran] == 0);
                     imageArray[ran]--;
                     cellText.src = "png/" + ran + ".png";
-                    twoDArray[r][c]="png/" + ran + ".png";;
+                    twoDArray[r][c]=ran;
                     if (rowno > 8) {
                         cell.style.padding = "7px";
                     } else cell.style.padding = "12px";
@@ -69,11 +69,26 @@
                 tbl.appendChild(row);
             }
             div1.appendChild(tbl);
-            tablefunction();
+            //wait few seconds then remove all images
+            removefunction();
+
+            tablefunction(twoDArray);
         }
-        function tablefunction(){
+        function removefunction(){
+            var table = document.getElementById("tableID"),rIndex,cIndex;
+            for(var i = 0; i < table.rows.length; i++)
+            {
+                // row cells
+                for(var j = 0; j < table.rows[i].cells.length; j++)
+                {
+                    table.rows[i].cells[j].innerHTML='<br>';
+                }
+            }
+
+        }
+        function tablefunction( twoDArray){
         var table = document.getElementById("tableID"),rIndex,cIndex;
-            for(var i = 1; i < table.rows.length; i++)
+            for(var i = 0; i < table.rows.length; i++)
             {
                 // row cells
                 for(var j = 0; j < table.rows[i].cells.length; j++)
@@ -81,10 +96,9 @@
                     table.rows[i].cells[j].onclick = function()
                     {
                         rIndex = this.parentElement.rowIndex;
-                        cIndex = this.cellIndex+1;
-                      // var cell=document.createElement("td");
-                       this.innerHTML='';
-                       //alert("Row : "+rIndex+" , Cell : "+cIndex);
+                        cIndex = this.cellIndex;
+                         var s="png/" + twoDArray[rIndex][cIndex] + ".png";
+                        this.innerHTML= '<img src='+s+' />';
                     };
                 }
             }
