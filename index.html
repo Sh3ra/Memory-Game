@@ -10,6 +10,7 @@
     <script>
         var array;
         var imageArray = [];
+        
 
         function imageGenerator() {
             alert(imageArray);
@@ -30,6 +31,11 @@
             }
             var tbl = document.createElement("table");
             tbl.id = "tableID";
+                var twoDArray = [rowno];
+                for (var i = 0; i < rowno; i++) {
+                twoDArray[i] = [col];
+                }
+
             // creating rows
             for (var r = 0; r < rowno; r++) {
                 var row = document.createElement("tr");
@@ -42,6 +48,7 @@
                     } while (imageArray[ran] == 0);
                     imageArray[ran]--;
                     cellText.src = "png/" + ran + ".png";
+                    twoDArray[r][c]="png/" + ran + ".png";;
                     if (rowno > 8) {
                         cell.style.padding = "7px";
                     } else cell.style.padding = "12px";
