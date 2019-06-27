@@ -10,6 +10,7 @@
     <script>
         var array;
         var imageArray = [];
+        var twoDarray=[];
 
         function imageGenerator() {
             alert(imageArray);
@@ -34,13 +35,17 @@
                 var row = document.createElement("tr");
                 for (var c = 0; c < col; c++) {
                     var cell = document.createElement("td");
+
+                   
+
                     var cellText = document.createElement("IMG");
                     var ran;
                     do {
-                        ran = Math.floor(Math.random() * ((rowno * col) / 2) );
+                        ran = Math.floor(Math.random() * ((rowno * col)/ 2 ) );
                     } while (imageArray[ran] == 0);
                     imageArray[ran]--;
-                    cellText.src = "png/" + ran + ".png";
+                    cellText.src=   "png/" + ran + ".png";
+                    cellText.style.blur="20px"  ;
                     if (rowno > 8) {
                         cell.style.padding = "7px";
                     } else cell.style.padding = "12px";
@@ -56,12 +61,25 @@
                         cellText.style.width = "22px";
                         cellText.style.height = "22px";
                     }
+                    
                     row.appendChild(cell);
+                    tbl.rows[r].cells[c].onclick = function () {
+                    tableText(this);
+                    };
+                  //  cell.addEventListener("click",function(){
+                    //    alert(cell.cellIndex);
+                        //var cellText=document.createTextNode("");
+                    //});
+                   
                 }
                 tbl.appendChild(row);
             }
             div1.appendChild(tbl);
-        }
+       }
+       function tableText(tableCell) {
+            alert(tableCell.cellIndex);
+            }
+
 
         var hours = 0;
         var mins = 0;
