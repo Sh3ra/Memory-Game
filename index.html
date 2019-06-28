@@ -80,11 +80,11 @@
                     }
                 }
             }, 2000);
-
+            document.getElementById("solve").onclick = function() {
+                solve(twoDArray);
+            }
             tablefunction(twoDArray);
         }
-
-
 
         function tablefunction(twoDArray) {
             var table = document.getElementById("tableID"),
@@ -130,7 +130,19 @@
                     };
                 }
             }
+        }
 
+        function solve(twoDArray) {
+            timo(false);
+            var table = document.getElementById("tableID");
+            for (var i = 0; i < table.rows.length; i++) {
+                // row cells
+                for (var j = 0; j < table.rows[i].cells.length; j++) {
+                    var s = "png/" + twoDArray[i][j] + ".png";
+                    table.rows[i].cells[j].innerHTML = '<img src=' + s + ' class="imgClass"/>';
+                }
+            }
+            alert("For a new gme click restart");
         }
 
         var hours = 0;
@@ -224,7 +236,6 @@
                 if (tbl) tbl.parentNode.removeChild(tbl);
                 document.getElementById('solve').disabled=true;
                 document.getElementById('start').value='Start';
-
                 }
                 ">
         <select id="box" name="arraySize">
