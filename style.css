@@ -82,3 +82,8 @@ td img {
     border-left: 3px solid gray;
     height: 508px;
 }
+
+.imgClass {
+    width: 22px;
+    height: 22px;
+}

@@ -10,12 +10,12 @@
     <script>
         var array;
         var imageArray = [];
-        
+
 
         function imageGenerator() {
             alert(imageArray);
         }
-        
+
 
         function createTable(str) {
             if (document.getElementById("tableID")) {
@@ -31,10 +31,10 @@
             }
             var tbl = document.createElement("table");
             tbl.id = "tableID";
-                var twoDArray = [rowno];
-                for (var i = 0; i < rowno; i++) {
+            var twoDArray = [rowno];
+            for (var i = 0; i < rowno; i++) {
                 twoDArray[i] = [col];
-                }
+            }
 
             // creating rows
             for (var r = 0; r < rowno; r++) {
@@ -48,7 +48,7 @@
                     } while (imageArray[ran] == 0);
                     imageArray[ran]--;
                     cellText.src = "png/" + ran + ".png";
-                    twoDArray[r][c]=ran;
+                    twoDArray[r][c] = ran;
                     if (rowno > 8) {
                         cell.style.padding = "7px";
                     } else cell.style.padding = "12px";
@@ -74,35 +74,34 @@
 
             tablefunction(twoDArray);
         }
-        function removefunction(){
-            var table = document.getElementById("tableID"),rIndex,cIndex;
-            for(var i = 0; i < table.rows.length; i++)
-            {
+
+        function removefunction() {
+            var table = document.getElementById("tableID"),
+                rIndex, cIndex;
+            for (var i = 0; i < table.rows.length; i++) {
                 // row cells
-                for(var j = 0; j < table.rows[i].cells.length; j++)
-                {
-                    table.rows[i].cells[j].innerHTML='<br>';
+                for (var j = 0; j < table.rows[i].cells.length; j++) {
+                    table.rows[i].cells[j].innerHTML = '<br>';
                 }
             }
 
         }
-        function tablefunction( twoDArray){
-        var table = document.getElementById("tableID"),rIndex,cIndex;
-            for(var i = 0; i < table.rows.length; i++)
-            {
+
+        function tablefunction(twoDArray) {
+            var table = document.getElementById("tableID"),
+                rIndex, cIndex;
+            for (var i = 0; i < table.rows.length; i++) {
                 // row cells
-                for(var j = 0; j < table.rows[i].cells.length; j++)
-                {
-                    table.rows[i].cells[j].onclick = function()
-                    {
+                for (var j = 0; j < table.rows[i].cells.length; j++) {
+                    table.rows[i].cells[j].onclick = function() {
                         rIndex = this.parentElement.rowIndex;
                         cIndex = this.cellIndex;
-                         var s="png/" + twoDArray[rIndex][cIndex] + ".png";
-                        this.innerHTML= '<img src='+s+' />';
+                        var s = "png/" + twoDArray[rIndex][cIndex] + ".png";
+                        this.innerHTML = '<img src=' + s + ' class="imgClass"/>';
                     };
                 }
             }
-           
+
         }
 
         var hours = 0;
