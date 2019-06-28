@@ -88,37 +88,44 @@
 
         function tablefunction(twoDArray) {
             var table = document.getElementById("tableID"),
-                rIndex, cIndex, checker = 0;
+                rIndex, cIndex, checker = 0,
+                couter = table.rows.length * table.rows[0].cells.length;
             for (var i = 0; i < table.rows.length; i++) {
                 // row cells
                 for (var j = 0; j < table.rows[i].cells.length; j++) {
                     table.rows[i].cells[j].onclick = function() {
-                        rIndex = this.parentElement.rowIndex;
-                        cIndex = this.cellIndex;
-                        var s = "png/" + twoDArray[rIndex][cIndex] + ".png";
-                        if (checker == 0)
-                            this.innerHTML = '<img src=' + s + ' class="imgClass" id="imgId0"/>';
-                        else
-                            this.innerHTML = '<img src=' + s + ' class="imgClass" id="imgId1"/>';
-                        checker++;
-                        if (checker == 2) {
-                            checker = 0;
-                            if (imgId0.src == imgId1.src) {
-                                setTimeout(function() {
-                                        var x = document.getElementById("tableID").getElementsByTagName("td");
-                                        // x[8].style.backgroundColor = "red";
-                                        alert(rIndex);
-                                        alert(cIndex);
+                        if (this.disabled != true) {
+                            rIndex = this.parentElement.rowIndex;
+                            cIndex = this.cellIndex;
+                            var s = "png/" + twoDArray[rIndex][cIndex] + ".png";
+                            if (checker == 0)
+                                this.innerHTML = '<img src=' + s + ' class="imgClass" id="imgId0"/>';
+                            else
+                                this.innerHTML = '<img src=' + s + ' class="imgClass" id="imgId1"/>';
+                            checker++;
+                            if (checker == 2) {
+                                checker = 0;
+                                if (imgId0.src == imgId1.src) {
+                                    setTimeout(function() {
+                                        imgId0.src = "correct.png"
+                                        imgId1.src = "correct.png"
+                                        imgId0.parentElement.disabled = true;
+                                        imgId1.parentElement.disabled = true;
+                                        imgId0.id = "done0";
+                                        imgId1.id = "done1";
                                     }, 1000)
-                                    //table.rows[i].cells[j].disabled = true;
-                                    // alert("hello");
+                                    couter -= 2;
+                                }
+                                setTimeout(function() {
+                                    var tembl = document.getElementById("imgId0");
+                                    if (tembl) tembl.parentNode.removeChild(tembl);
+                                    var temb2 = document.getElementById("imgId1");
+                                    if (temb2) temb2.parentNode.removeChild(temb2);
+                                }, 1000);
+                                if (couter < 0) {
+                                    alert("GG! for a new game click Restart");
+                                }
                             }
-                            setTimeout(function() {
-                                var tembl = document.getElementById("imgId0");
-                                if (tembl) tembl.parentNode.removeChild(tembl);
-                                var temb2 = document.getElementById("imgId1");
-                                if (temb2) temb2.parentNode.removeChild(temb2);
-                            }, 1000);
                         }
                     };
                 }
@@ -205,10 +212,10 @@
         <input type="button" id="start" value="Start" onclick="
            if(document.getElementById('start').value=='Start')
                 {
-                    timo(true);
-                createTable(document.getElementById('box').value);
+                timo(true);
                 document.getElementById('start').value='Restart';
                 document.getElementById('solve').disabled=false;
+                createTable(document.getElementById('box').value);
                 }
             else 
                 {
