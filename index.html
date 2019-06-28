@@ -70,22 +70,21 @@
             }
             div1.appendChild(tbl);
             //wait few seconds then remove all images
-            removefunction();
+            setTimeout(function() {
+                var table = document.getElementById("tableID"),
+                    rIndex, cIndex;
+                for (var i = 0; i < table.rows.length; i++) {
+                    // row cells
+                    for (var j = 0; j < table.rows[i].cells.length; j++) {
+                        table.rows[i].cells[j].innerHTML = '<br>';
+                    }
+                }
+            }, 2000);
 
             tablefunction(twoDArray);
         }
 
-        function removefunction() {
-            var table = document.getElementById("tableID"),
-                rIndex, cIndex;
-            for (var i = 0; i < table.rows.length; i++) {
-                // row cells
-                for (var j = 0; j < table.rows[i].cells.length; j++) {
-                    table.rows[i].cells[j].innerHTML = '<br>';
-                }
-            }
 
-        }
 
         function tablefunction(twoDArray) {
             var table = document.getElementById("tableID"),
@@ -105,8 +104,14 @@
                         if (checker == 2) {
                             checker = 0;
                             if (imgId0.src == imgId1.src) {
-                                //table.rows[i].cells[j].disabled = true;
-                                // alert("hello");
+                                setTimeout(function() {
+                                        var x = document.getElementById("tableID").getElementsByTagName("td");
+                                        // x[8].style.backgroundColor = "red";
+                                        alert(rIndex);
+                                        alert(cIndex);
+                                    }, 1000)
+                                    //table.rows[i].cells[j].disabled = true;
+                                    // alert("hello");
                             }
                             setTimeout(function() {
                                 var tembl = document.getElementById("imgId0");
@@ -135,7 +140,7 @@
 
         function startTimer() {
             if (time_checker == true) {
-                seconds = 0;
+                seconds = -2;
                 mins = 0;
                 hours = 0;
                 time_checker = false;
@@ -150,35 +155,37 @@
                 mins = 0;
                 seconds = 0;
             }
-            var temp;
-            var result;
-            if (hours < 10) {
-                temp = "0" + hours;
-                result = temp;
-                result = result + " : ";
-                temp = null;
-            } else {
-                result = hours;
-                result = result + " : ";
-            }
-            if (mins < 10) {
-                temp = "0" + mins;
-                result = result + temp;
-                result = result + " : ";
-                temp = null;
-            } else {
-                result = result + mins;
-                result = result + " : ";
-            }
-            if (seconds < 10) {
-                temp = "0" + seconds;
-                result = result + temp;
-                temp = null;
-            } else {
-                result = result + seconds;
-            }
+            if (seconds > -1) {
 
-            document.getElementById("timer").innerHTML = "Time " + result;
+                var temp;
+                var result;
+                if (hours < 10) {
+                    temp = "0" + hours;
+                    result = temp;
+                    result = result + " : ";
+                    temp = null;
+                } else {
+                    result = hours;
+                    result = result + " : ";
+                }
+                if (mins < 10) {
+                    temp = "0" + mins;
+                    result = result + temp;
+                    result = result + " : ";
+                    temp = null;
+                } else {
+                    result = result + mins;
+                    result = result + " : ";
+                }
+                if (seconds < 10) {
+                    temp = "0" + seconds;
+                    result = result + temp;
+                    temp = null;
+                } else {
+                    result = result + seconds;
+                }
+                document.getElementById("timer").innerHTML = "Time " + result;
+            }
         }
     </script>
 
