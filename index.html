@@ -89,7 +89,7 @@
 
         function tablefunction(twoDArray) {
             var table = document.getElementById("tableID"),
-                rIndex, cIndex;
+                rIndex, cIndex, checker = 0;
             for (var i = 0; i < table.rows.length; i++) {
                 // row cells
                 for (var j = 0; j < table.rows[i].cells.length; j++) {
@@ -97,7 +97,24 @@
                         rIndex = this.parentElement.rowIndex;
                         cIndex = this.cellIndex;
                         var s = "png/" + twoDArray[rIndex][cIndex] + ".png";
-                        this.innerHTML = '<img src=' + s + ' class="imgClass"/>';
+                        if (checker == 0)
+                            this.innerHTML = '<img src=' + s + ' class="imgClass" id="imgId0"/>';
+                        else
+                            this.innerHTML = '<img src=' + s + ' class="imgClass" id="imgId1"/>';
+                        checker++;
+                        if (checker == 2) {
+                            checker = 0;
+                            if (imgId0.src == imgId1.src) {
+                                //table.rows[i].cells[j].disabled = true;
+                                // alert("hello");
+                            }
+                            setTimeout(function() {
+                                var tembl = document.getElementById("imgId0");
+                                if (tembl) tembl.parentNode.removeChild(tembl);
+                                var temb2 = document.getElementById("imgId1");
+                                if (temb2) temb2.parentNode.removeChild(temb2);
+                            }, 1000);
+                        }
                     };
                 }
             }
