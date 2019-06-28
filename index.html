@@ -89,7 +89,8 @@
         function tablefunction(twoDArray) {
             var table = document.getElementById("tableID"),
                 rIndex, cIndex, checker = 0,
-                couter = table.rows.length * table.rows[0].cells.length;
+                couter = table.rows.length * table.rows[0].cells.length,
+                endgame = false;
             for (var i = 0; i < table.rows.length; i++) {
                 // row cells
                 for (var j = 0; j < table.rows[i].cells.length; j++) {
@@ -122,8 +123,9 @@
                                     var temb2 = document.getElementById("imgId1");
                                     if (temb2) temb2.parentNode.removeChild(temb2);
                                 }, 1000);
-                                if (couter <= 0) {
-                                    alert("GG! for a new game click Restart");
+                                if (endgame == true) alert("GG! For new game click Restart");
+                                if (couter < 3) {
+                                    endgame = true;
                                 }
                             }
                         }
