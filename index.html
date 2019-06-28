@@ -140,6 +140,7 @@
                 for (var j = 0; j < table.rows[i].cells.length; j++) {
                     var s = "png/" + twoDArray[i][j] + ".png";
                     table.rows[i].cells[j].innerHTML = '<img src=' + s + ' class="imgClass"/>';
+                    table.rows[i].cells[j].disabled = true;
                 }
             }
             alert("For a new gme click restart");
