@@ -11,12 +11,6 @@
         var array;
         var imageArray = [];
 
-
-        function imageGenerator() {
-            alert(imageArray);
-        }
-
-
         function createTable(str) {
             if (document.getElementById("tableID")) {
                 var tbl = document.getElementById("tableID");
@@ -114,7 +108,7 @@
                                         imgId1.parentElement.disabled = true;
                                         imgId0.id = "done0";
                                         imgId1.id = "done1";
-                                    }, 1000)
+                                    }, 500)
                                     couter -= 2;
                                 }
                                 setTimeout(function() {
@@ -122,7 +116,7 @@
                                     if (tembl) tembl.parentNode.removeChild(tembl);
                                     var temb2 = document.getElementById("imgId1");
                                     if (temb2) temb2.parentNode.removeChild(temb2);
-                                }, 1000);
+                                }, 500);
                                 if (endgame == true) alert("GG! For new game click Restart");
                                 if (couter < 3) {
                                     endgame = true;
